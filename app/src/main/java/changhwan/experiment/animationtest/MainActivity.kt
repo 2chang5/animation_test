@@ -1,28 +1,57 @@
 package changhwan.experiment.animationtest
 
+import android.animation.Animator
 import android.animation.AnimatorInflater
+import android.animation.AnimatorListenerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
+import androidx.core.animation.doOnEnd
+import androidx.core.animation.doOnStart
 import changhwan.experiment.animationtest.databinding.ActivityMainBinding
 import com.spark.android.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Handler(Looper.getMainLooper()).postDelayed({
-            initAnimation()
-        },2000)
+
+        initAnimation()
 
     }
 
-    fun initAnimation(){
-        val animationColorChange = AnimatorInflater.loadAnimator(this, R.animator.object_ani_test).apply{
-            setTarget(binding.tvAnimationText)
-            start()
+//    fun initAnimation() {
+//        binding.btnAnimationStart.setOnClickListener {
+//            val animationColorChange =
+//                AnimatorInflater.loadAnimator(this, R.animator.object_ani_test5).apply {
+//                    addListener(object : AnimatorListenerAdapter(){
+//                        override fun onAnimationStart(animation: Animator?) {
+//                            super.onAnimationStart(animation)
+//                            Toast.makeText(this@MainActivity,"시작확인",Toast.LENGTH_SHORT).show()
+//                        }
+//
+//                        override fun onAnimationEnd(animation: Animator?) {
+//                            super.onAnimationEnd(animation)
+//                            Toast.makeText(this@MainActivity,"끝확인",Toast.LENGTH_SHORT).show()
+//                        }
+//                    })
+//
+//                    setTarget(binding.tvAnimationText)
+//                    start()
+//                }
+//        }
+//    }
+
+    fun initAnimation() {
+        binding.btnAnimationStart.setOnClickListener {
+            val animationColorChange =
+                AnimatorInflater.loadAnimator(this, R.animator.object_ani_test5).apply {
+                    doOnStart { Toast.makeText(this@MainActivity, "시작", Toast.LENGTH_SHORT).show() }
+                    doOnEnd { Toast.makeText(this@MainActivity,"끝",Toast.LENGTH_SHORT).show() }
+                    setTarget(binding.tvAnimationText)
+                    start()
+                }
         }
-
-
     }
 }

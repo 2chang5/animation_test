@@ -33,5 +33,15 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/tv_animation_text"
+            android:layout_marginBottom="200dp"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

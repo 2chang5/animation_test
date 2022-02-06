@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="5000"
+    android:interpolator="@android:interpolator/accelerate_quad">
+    <propertyValuesHolder
+        android:propertyName="translationY"
+        android:valueFrom="0dp"
+        android:valueTo="-200dp"
+        android:valueType="floatType"/>
+    <propertyValuesHolder
+        android:propertyName="backgroundColor"
+        android:valueFrom="@color/black"
+        android:valueTo="@color/purple_200"
+        android:valueType="colorType"/>
+</objectAnimator>
