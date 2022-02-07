@@ -3,7 +3,7 @@
     android:ordering="sequentially">
 
     <objectAnimator
-        android:propertyName="textColor"
+        android:propertyName="backgroundColor"
         android:duration="1000"
         android:valueFrom="@color/black"
         android:valueTo="@color/purple_200"
