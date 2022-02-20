@@ -4,3 +4,6 @@ animation_test
 
 애니메이션 종류에 관한 전반적인 정리
 https://mccoy-devloper.tistory.com/42
+
+Object Animator 에 관한글
+https://mccoy-devloper.tistory.com/43
