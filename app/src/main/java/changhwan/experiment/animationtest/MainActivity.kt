@@ -57,35 +57,48 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 //        }
 //    }
 
+//    fun initAnimation() {
+//        binding.btnAnimationStart.setOnClickListener {
+//            val animationColorChange =
+//                AnimatorInflater.loadAnimator(this, R.animator.object_ani_test5).apply {
+//                    doOnStart { Toast.makeText(this@MainActivity, "시작", Toast.LENGTH_SHORT).show() }
+//                    doOnEnd { Toast.makeText(this@MainActivity, "끝", Toast.LENGTH_SHORT).show() }
+//                    setTarget(binding.tvAnimationText)
+//                }
+//
+//            val animationButtonChange =
+//                AnimatorInflater.loadAnimator(this, R.animator.object_ani_test4).apply {
+//                    setTarget(binding.btnAnimationStart)
+//                }
+//
+//
+//            val animationTestForSet =
+//                AnimatorInflater.loadAnimator(this,R.animator.object_ani_test).apply {
+//                    setTarget(binding.view)
+//                }
+//
+//            val firstAnimation = AnimatorSet().apply {
+//                play(animationColorChange).after(2000).before(animationButtonChange)
+//            }
+//
+//            AnimatorSet().apply{
+//                play(firstAnimation).with(animationTestForSet)
+//                start()
+//            }
+//
+//        }
+//    }
+
     fun initAnimation() {
         binding.btnAnimationStart.setOnClickListener {
+            binding.tvAnimationText.pivotX = 0f
             val animationColorChange =
-                AnimatorInflater.loadAnimator(this, R.animator.object_ani_test5).apply {
+                AnimatorInflater.loadAnimator(this, R.animator.object_ani_test6).apply {
                     doOnStart { Toast.makeText(this@MainActivity, "시작", Toast.LENGTH_SHORT).show() }
                     doOnEnd { Toast.makeText(this@MainActivity, "끝", Toast.LENGTH_SHORT).show() }
                     setTarget(binding.tvAnimationText)
+                    start()
                 }
-
-            val animationButtonChange =
-                AnimatorInflater.loadAnimator(this, R.animator.object_ani_test4).apply {
-                    setTarget(binding.btnAnimationStart)
-                }
-
-
-            val animationTestForSet =
-                AnimatorInflater.loadAnimator(this,R.animator.object_ani_test).apply {
-                    setTarget(binding.view)
-                }
-
-            val firstAnimation = AnimatorSet().apply {
-                play(animationColorChange).after(2000).before(animationButtonChange)
-            }
-
-            AnimatorSet().apply{
-                play(firstAnimation).with(animationTestForSet)
-                start()
-            }
-
         }
     }
 }
